@@ -28,7 +28,7 @@ public class PlayGame {
                 //do nothing
             }
             //wait for board loaded
-            App.pause(5);
+            App.pause(2);
 
             //do all possible swaps
             game.swapNext();

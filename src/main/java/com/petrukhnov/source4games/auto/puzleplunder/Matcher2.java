@@ -71,15 +71,10 @@ public class Matcher2 {
 
         int newValue = board[posX][posY];
 
-        log.info("-");
-        log.info("val: {}", newValue);
-
         /*
          * xx X
          */
         if (board[posX-3][posY] == newValue && board[posX-2][posY] == newValue) {
-            log.info("xx X");
-            log.info("posX, posY");
             return new SwapAction(posX, posY, SwapAction.SWAP_ACTION.LEFT);
         }
 
@@ -87,8 +82,6 @@ public class Matcher2 {
          * x xX
          */
         if (board[posX-3][posY] == newValue && board[posX-1][posY] == newValue) {
-            log.info("x xX");
-            log.info("posX-3, posY");
             return new SwapAction(posX-3, posY, SwapAction.SWAP_ACTION.RIGHT);
         }
 
@@ -99,11 +92,6 @@ public class Matcher2 {
          * x
          */
         if (board[posX][posY-2] == newValue && board[posX][posY-3] == newValue) {
-            log.info("X");
-            log.info("");
-            log.info("x");
-            log.info("x");
-            log.info("posX, posY");
             return new SwapAction(posX, posY, SwapAction.SWAP_ACTION.DOWN);
         }
 
@@ -114,11 +102,6 @@ public class Matcher2 {
          * x
          */
         if (board[posX][posY-1] == newValue && board[posX][posY-3] == newValue) {
-            log.info("X");
-            log.info("x");
-            log.info("");
-            log.info("x");
-            log.info("posX, posY-3");
             return new SwapAction(posX, posY-3, SwapAction.SWAP_ACTION.UP);
         }
 
@@ -128,9 +111,6 @@ public class Matcher2 {
          *  x
          */
         if (board[posX-2][posY] == newValue && board[posX-1][posY-1] == newValue) {
-            log.info("x X");
-            log.info(" x");
-            log.info("posX-1, posY-1");
             return new SwapAction(posX-1, posY-1, SwapAction.SWAP_ACTION.UP);
         }
 
@@ -140,9 +120,6 @@ public class Matcher2 {
          * x x
          */
         if (board[posX-1][posY-1] == newValue && board[posX+1][posY-1] == newValue) {
-            log.info(" X");
-            log.info("x x");
-            log.info("posX, posY");
             return new SwapAction(posX, posY, SwapAction.SWAP_ACTION.DOWN);
         }
 
@@ -153,10 +130,6 @@ public class Matcher2 {
          * x
          */
         if (board[posX+1][posY-1] == newValue && board[posX][posY-2] == newValue) {
-            log.info("X");
-            log.info(" x");
-            log.info("x");
-            log.info("posX+1, posY-1");
             return new SwapAction(posX+1, posY-1, SwapAction.SWAP_ACTION.LEFT);
         }
 
@@ -166,10 +139,6 @@ public class Matcher2 {
          *  x
          */
         if (board[posX-1][posY-1] == newValue && board[posX][posY-2] == newValue) {
-            log.info(" X");
-            log.info("x");
-            log.info(" x");
-            log.info("posX-1, posY-1");
             return new SwapAction(posX-1, posY-1, SwapAction.SWAP_ACTION.RIGHT);
         }
 
@@ -181,9 +150,6 @@ public class Matcher2 {
          * xx
          */
         if (board[posX-2][posY-1] == newValue && board[posX-1][posY-1] == newValue) {
-            log.info("  X");
-            log.info("xx");
-            log.info("posX, posY");
             return new SwapAction(posX, posY, SwapAction.SWAP_ACTION.DOWN);
         }
 
@@ -193,9 +159,6 @@ public class Matcher2 {
          *   x
          */
         if (board[posX-1][posY] == newValue && board[posX+1][posY-1] == newValue) {
-            log.info("xX");
-            log.info("  x");
-            log.info("posX+1, posY-1");
             return new SwapAction(posX+1, posY-1, SwapAction.SWAP_ACTION.UP);
         }
 
@@ -205,9 +168,6 @@ public class Matcher2 {
          *  xx
          */
         if (board[posX+1][posY-1] == newValue && board[posX+2][posY-1] == newValue) {
-            log.info("X");
-            log.info(" xx");
-            log.info("posX, posY");
             return new SwapAction(posX, posY, SwapAction.SWAP_ACTION.DOWN);
         }
 
@@ -217,9 +177,6 @@ public class Matcher2 {
          * x
          */
         if (board[posX-2][posY-1] == newValue && board[posX-1][posY] == newValue) {
-            log.info(" xX");
-            log.info("x");
-            log.info("posX-2, posY-1");
             return new SwapAction(posX-2, posY-1, SwapAction.SWAP_ACTION.UP);
         }
 
@@ -230,10 +187,6 @@ public class Matcher2 {
          * x
          */
         if (board[posX-1][posY-1] == newValue && board[posX-1][posY-2] == newValue) {
-            log.info(" X");
-            log.info("x");
-            log.info("x");
-            log.info("posX, posY");
             return new SwapAction(posX, posY, SwapAction.SWAP_ACTION.LEFT);
         }
 
@@ -244,10 +197,6 @@ public class Matcher2 {
          *  x
          */
         if (board[posX+1][posY-1] == newValue && board[posX+1][posY-2] == newValue) {
-            log.info("X");
-            log.info(" x");
-            log.info(" x");
-            log.info("posX, posY");
             return new SwapAction(posX, posY, SwapAction.SWAP_ACTION.RIGHT);
         }
 
@@ -258,10 +207,6 @@ public class Matcher2 {
          *  x
          */
         if (board[posX][posY-1] == newValue && board[posX+1][posY-2] == newValue) {
-            log.info("X");
-            log.info("x");
-            log.info(" x");
-            log.info("posX+1, posY-2");
             return new SwapAction(posX+1, posY-2, SwapAction.SWAP_ACTION.LEFT);
         }
 
@@ -271,10 +216,6 @@ public class Matcher2 {
          * x
          */
         if (board[posX][posY-1] == newValue && board[posX-1][posY-2] == newValue) {
-            log.info(" X");
-            log.info(" x");
-            log.info("x");
-            log.info("posX-1, posY-2");
             return new SwapAction(posX-1, posY-2, SwapAction.SWAP_ACTION.RIGHT);
         }
 

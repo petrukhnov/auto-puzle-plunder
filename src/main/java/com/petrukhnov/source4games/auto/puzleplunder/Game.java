@@ -27,6 +27,9 @@ public class Game {
 
     private static Matcher2 matcher = new Matcher2();
 
+    //shop region
+    private static Region shopRegion;
+
     public Game(App app) {
 
         this.app = app;
@@ -35,7 +38,7 @@ public class Game {
         tileList = new Tile[TILES_TOTAL+1];
         tileList[0] = new Tile(null, 0); //undefined
         for (int i = 1; i<=TILES_TOTAL; i++){
-            tileList[i] = new Tile((new Pattern(ImageHelper.getImagePath("tile"+i+".png"))).similar(0.70f), i);
+            tileList[i] = new Tile((new Pattern(ImageHelper.getImagePath("tile"+i+".png"))).similar(0.60f), i);
         }
 
         //init region locations
@@ -63,6 +66,13 @@ public class Game {
                 //boardCellCoordinates[w][h].highlight(1);
             }
         }
+
+        //with adjustments to game
+        shopRegion = new Region(boardRegion.x+boardRegion.w+60, boardRegion.y+45, 200, 300);
+        shopRegion.highlight(3);
+
+        //fixme
+        //System.exit(1);
     }
 
     /**
@@ -71,11 +81,24 @@ public class Game {
      */
     public void swapNext() {
 
+        //check if possible to buy something
+        try {
+            ImageHelper.clickOnImage("buy.png", shopRegion);
+
+            App.pause(1);
+
+            //check if no money, and try exit shop
+            ImageHelper.clickOnImage("exit.png", shopRegion);
+
+        } catch (FindFailed e) {
+            //may not exist, then continue
+        }
 
         clearBoard();
 
         log.info("START");
         //log.info("S {}", boardTiles.length);
+
 
         //iterate over each cell
         for (int h = 0; h<BOARD_H;h++) {
@@ -143,7 +166,7 @@ public class Game {
             clearBoard();
             //wait few seconds
             boardRegion.right().click();
-            App.pause(4);
+            //App.pause(1);
 
         }
         log.info("END");
